@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>非典型程序员的自言自语</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="非典型程序员的自言自语">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="非典型程序员的自言自语">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="非典型程序员的自言自语">
+  
+    <link rel="alternate" href="/atom.xml" title="非典型程序员的自言自语" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">非典型程序员的自言自语</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-ML1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/14/ML1/" class="article-date">
+  <time datetime="2017-08-14T10:13:59.000Z" itemprop="datePublished">2017-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/14/ML1/">机器学习笔记 - 基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>本文档主要对机器学习一些基础概念和常用方法工具做一些简单介绍。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="目录">目录</a></h2><ol>
+<li><a href="#引言">引言</a></li>
+<li><a href="#什么是机器学习？">什么是机器学习？</a></li>
+<li><a href="#准备工作">准备工作</a><ol>
+<li><a href="#语言">语言</a></li>
+<li><a href="#数学">数学</a></li>
+<li><a href="#框架">框架</a></li>
+<li><a href="#工具">工具</a></li>
+</ol>
+</li>
+<li><a href="#一般流程">一般流程</a><ol>
+<li><a href="#观察数据">观察数据</a></li>
+<li><a href="#模型验证">模型验证</a></li>
+<li><a href="#模型评估">模型评估</a></li>
+<li><a href="#模型误差">模型误差</a></li>
+</ol>
+</li>
+<li><a href="#一个例子">一个例子</a></li>
+</ol>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><a name="引言">引言</a></h2><p>本文是一个学习笔记，记录下机器学习的一些心得体会。这些心得体会可能是带有个人感受的，也可能会带有一定的偏差和误导，所以请慎重参考。我会尽量结合我们当前的产品，在每篇文章之后进行一个具备实际操作性的例子以供大家深入理解。</p>
+<h2 id="什么是机器学习？"><a href="#什么是机器学习？" class="headerlink" title="什么是机器学习？"></a><a name="什么是机器学习？">什么是机器学习？</a></h2><p>首先一个问题，<strong>什么是机器学习？</strong></p>
+<p>先给出几个通俗的定义：</p>
+<ul>
+<li>机器学习是一门人工智能的科学，该领域的主要研究对象是人工智能，特别是如何在经验学习中改善具体算法的性能。</li>
+<li>机器学习方法是计算机利用已有的数据，得出了某种模型，并利用此模型预测未来的一种方法。</li>
+<li>机器学习是用数据或以往的经验，以此优化计算机程序的性能标准。</li>
+<li>从方法论上来说说，机器学习属于归纳法，观察数据，提取数据特征，建立模型，并对未知数据做出预测。</li>
+</ul>
+<p>而针对这个问题，一个经常被引用的定义来自于Tom M. Mitchell：</p>
+<blockquote>
+<p> A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E.</p>
+</blockquote>
+<p>给出一个马马虎虎的翻译：</p>
+<blockquote>
+<p>针对某类任务T和给定一种性能度量P，一个计算机程序如果使用经验E使其能够在任务T的表现，通过性能度量P的测量是提高的，我们就可以说这个程序从经验E上进行了学习。</p>
+</blockquote>
+<p>这个正式的定义实际上给出了机器学习的几个关键要素：</p>
+<ul>
+<li><strong>T</strong>:是我们抽象要解决的问题，我们要根据T来抽象和建立我们的模型</li>
+<li><strong>P</strong>:是我们对于模型预测准确度和有效性的度量</li>
+<li><strong>E</strong>:是我们用来训练模型的数据</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a><a name="分类">分类</a></h3><p>机器学习的算法可以从大类上分为如下几类，而我们的学习也将遵循这样的学习曲线，来逐步学习这些机器学习的算法。</p>
+<ul>
+<li><p><strong>监督学习</strong><br>监督学习是指给出一系列带标记的数据来训练模型，从而使模型能够对不带标签的未知数据做出预测。形象的来说，就是让模型做很多张已知答案的模拟考卷，我们通过对比模型做出的答案和标准答案，来对模型做出反馈和调整（监督的过程），从而使模型在正式考试（实际预测）中达到良好的预测结果。监督学习的代表是回归和分类，回归是指对连续性数值的预测，比如我们通过图像来识别人的年龄。而分类是指对样本进行归类，比如对一封邮件是否是垃圾邮件的判定。</p>
+</li>
+<li><p><strong>非监督学习</strong><br>非监督学习是指在给出不带标签的数据的基础上，模型通过观察数据的规律和特征来进行学习。聚类是一种典型的非监督学习，比如我们给模型一大堆没有标记的数据，模型通过观察数据特征，把数据分为A/B/C几类，这个过程就是非监督的学习。</p>
+</li>
+<li><p><strong>强化学习</strong><br>强化学习是指在没有给出带标签数据告诉算法应该怎么样做的情况下，先尝试做出一些行为，然后得到一个结果，通过判断这个结果是对还是错来进行反馈，由这个反馈来调整之前的行为，通过不断的调整算法能够学习在什么样的情况下选择什么样的行为可以得到最好的结果。与监督学习相比，最大的不同是强化学习没有标记告诉它在某种情况下应该做出什么样的行为，只有一个做出一系列行为最终反馈的信号（signal）。</p>
+</li>
+<li><p><strong>深度学习</strong></p>
+</li>
+</ul>
+<h3 id="参考目录"><a href="#参考目录" class="headerlink" title="参考目录"></a><a name="参考目录">参考目录</a></h3><ul>
+<li><a href="http://36kr.com/p/5056699.html" target="_blank" rel="external">机器学习的一篇科普文章</a></li>
+<li><a href="https://github.com/ty4z2008/Qix/blob/master/dl.md" target="_blank" rel="external">深度学习资料</a></li>
+</ul>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><a name="准备工作">准备工作</a></h2><p>下面介绍机器学习所涉及到的一些基础性知识。</p>
+<h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a><a name="语言">语言</a></h3><p>机器学习最重要的几点在于，数据预处理、模型构建与训练、模型的部署与服务提供。在每个阶段，我们选择的语言可以有所不同。</p>
+<ul>
+<li>数据预处理：Python/Java/Scala配上Spark</li>
+<li>模型构建与训练：目前的大多数机器学习和深度学习框架都是用Python作为基础构建语言，其他语言也有很多框架，但是快速的构建模型，快速的进行各种验证，Python有显著的优势。</li>
+<li>模型的部署与服务提供：服务方面还是用c++和Java为主（效率考虑），使用python训练出来的模型，其实有很多办法可以让其他语言（比如C++/JAVA）进行调用，从而实现生产部署。</li>
+</ul>
+<h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a><a name="数学">数学</a></h3><p>机器学习中所涉及到的数学知识主要涵盖如下这些方面：</p>
+<ul>
+<li>概率论</li>
+<li>线性代数</li>
+<li>信息论</li>
+<li>数学分析</li>
+<li>多元微积分</li>
+</ul>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/25197792" target="_blank" rel="external">机器学习中用到的数学</a></li>
+<li><a href="https://www.qcloud.com/community/article/230692?fromSource=gwzcw.149315.149315.149315" target="_blank" rel="external">机器学习入门书籍</a></li>
+<li><a href="http://www.cnblogs.com/harvey888/p/5966637.html" target="_blank" rel="external">机器学习简介</a></li>
+</ul>
+<h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a><a name="框架">框架</a></h3><p>下面列举了一些机器学习所常用的框架。</p>
+<ul>
+<li><a href="http://www.numpy.org" target="_blank" rel="external">NumPy</a>：NumPy(Numerical Python的简称）是Python科学计算的基础包，为Python提供了快速的数组处理能力。</li>
+<li><a href="http://pandas.pydata.org" target="_blank" rel="external">pandas</a>：pandas提供了我们能够快速便捷处理结构化数据的大量数据结构和函数。比如其中重要的对象DataFrame，你可以理解为一个二维表的结构。</li>
+<li><a href="http://matplotlib.org" target="_blank" rel="external">matplotlib</a>：matplotlib是用于绘制数据图表的PYthon库，在机器学习中，我们首要做的事情就是观察数据，而借助matplotlib，我们可以通过可视化的方式来观察数据。</li>
+<li><a href="http://seaborn.pydata.org" target="_blank" rel="external">seaborn</a>：seaborn是在matplotlib的基础上进行的更高级的API封装，从而使作出一些统计图更加容易。</li>
+<li><a href="https://www.scipy.org" target="_blank" rel="external">SciPy</a>：scipy是一组专门解决科学计算中各种标准问题域的包的集合，一般来说，SciPy加上NumPy可以完全代替MATLAB的功能。</li>
+<li><a href="http://scikit-learn.org/stable" target="_blank" rel="external">Scikit-learn</a>：Scikit-learn是Python语言中专门针对机器学习应用发展而来的一款开源框架，主要功能分为六大部分：分类，回归，聚类， 数据降维，模型选择和模型预处理。</li>
+<li><a href="http://www.tensorflow.org" target="_blank" rel="external">Tensorflow</a>：谷歌开源的深度学习框架，当前最流行的深度学习框架。</li>
+<li><a href="http://caffe.berkeleyvision.org" target="_blank" rel="external">Caffe</a>：全称应该是Convolutional Architecture for Fast Feature Embedding，它是一个清晰、高效的深度学习框架，它是开源的，核心语言是C++，它支持命令行、Python和Matlab接口，它既可以在CPU上运行也可以在GPU上运行。</li>
+</ul>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a><a name="工具">工具</a></h3><p>下面是一些机器学习常用的工具。</p>
+<h4 id="Anacoda"><a href="#Anacoda" class="headerlink" title="Anacoda"></a><a name="Anacoda">Anacoda</a></h4><p>Anaconda 实际上是一个软件发行版，它附带了 conda、Python 和 150 多个科学包及其依赖项。应用程序 conda 是包和环境管理器。Anaconda 的下载文件比较大（约 500 MB），因为它附带了 Python 中最常用的数据科学包。如果只需要某些包，或者需要节省带宽或存储空间，也可以使用 Miniconda 这个较小的发行版（仅包含 conda 和 Python）。但你仍可以使用 conda 来安装任何可用的包，它只是自身没有附带这些包而已。</p>
+<ul>
+<li>使用环境<br>在Anacoda中，我们可以创建环境以隔离项目。比如，我们可以通过命令<code>conda create -n py3 python=3</code>来创建Python3的工作环境。而通过命令<code>source activate my_env</code>就能够很方便的切换到这个工作环境。</li>
+<li>共享环境<br>在 GitHub 上共享代码时，最好同样创建环境文件并将其包括在代码库中。这能让其他人更轻松地安装你的代码的所有依赖项。</li>
+</ul>
+<h4 id="Jupyter-Notebook"><a href="#Jupyter-Notebook" class="headerlink" title="Jupyter Notebook"></a><a name="Jupyter Notebook">Jupyter Notebook</a></h4><p>Jupyter notebook 是一种 Web 应用，能让用户将说明文本、数学方程、代码和可视化内容全部组合到一个易于共享的文档中。但是我更愿意把Jupyter Notebook看做一个很好用IDE。Jupyter可以在本机运行，也可以运行于远端机器，我已经在本地的187服务器上安装了Jupyter环境，你可以在任何一台机器上访问。</p>
+<h3 id="一般流程"><a href="#一般流程" class="headerlink" title="一般流程"></a><a name="一般流程">一般流程</a></h3><p>一个机器学习的流程如下图所示：<br><img src="images/feedback.jpg" alt="流程"></p>
+<h3 id="观察数据"><a href="#观察数据" class="headerlink" title="观察数据"></a><a name="观察数据">观察数据</a></h3><p>数据是机器学习的输入，也是关键的部分。我们首先需要从各种统计值来观察和衡量我们的数据。</p>
+<h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a><a name="数据分布">数据分布</a></h4><p><strong>我们数据的分布是怎样的？数据的中心在哪儿？</strong></p>
+<p>要回答这样的问题，我们需要理解这些统计学的概念。</p>
+<ul>
+<li><strong>众数</strong>：众数（Mode）是统计学名词，众数是指一组数据中出现次数最多的那个数据。<ul>
+<li>一组数据可以有多个众数，也可能没有众数。</li>
+<li>众数可以是一个数，也可以是一个取值范围，当我们按照分组来处理数据的是，众数可能是其中一个分组</li>
+<li>众数不受极端值的影响</li>
+</ul>
+</li>
+<li><strong>均值</strong>：算术均值（Mean）是指数据中各个样本的总和除以样本个数所得的商。<ul>
+<li>一个样本的均值可以推断其所在的总体</li>
+<li>均值容易受到极端值的影响</li>
+</ul>
+</li>
+<li><strong>中位数</strong>：中位数（Median）是指将一组数据按大小顺序排列，形成一个数列，位于数列中间位置的那个数据，叫做中位数。<ul>
+<li>中位数不受极端变量值的影响。</li>
+</ul>
+</li>
+</ul>
+<p>一个形象的图示如下所示：<br><img src="images/mean_mode_median.jpg" alt="均值众数和中位数"></p>
+<p>我们可以用boxplot（箱线图）来更直观的观察到数据的分布状况，我们可以用下面的代码画出数据的箱线图。在机器学习中，我们也可以通过这个特征来观察特征数据与标签之间的相关性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div><div class="line">sns.boxplot(x, y, orient=<span class="string">"h"</span>)</div></pre></td></tr></table></figure>
+<p>箱线图的图示如下所示：<br><img src="images/boxplot.jpg" alt="箱线图"></p>
+<h4 id="数据差异"><a href="#数据差异" class="headerlink" title="数据差异"></a><a name="数据差异">数据差异</a></h4><p>有时候，平均值反映不了样本数据之间的差异性，比如我们的工资可能都是<strong>被平均</strong>了，这不能反映同样年龄段的人在工资上的巨大差异，衡量这样的差异，我们需要另外的一些指标。</p>
+<ul>
+<li><strong>值域</strong>：值域（Range）反映了所有样本的取值范围。</li>
+<li><strong>IQR</strong>：简单来说，IQR反映了一半左右数据的取值范围。精确的定义是，IQR是指第1个和第3个四分位数之间的距离，它给出被数据的中间一半所覆盖的范围，这个距离称为IQR。<ul>
+<li>分位数是指把所有数值由小到大进行排列并分为四等份，处于三个分割点位置的数值</li>
+<li>分位数能够从整体上描述数据的分布状态，但是它无法告诉我们数据的波动性大小</li>
+</ul>
+</li>
+<li><strong>方差</strong>：方差（Variance）是所有数据点和均值（Mean）之间的差值的平方和，它能够反映数据之间差异性的大小。</li>
+<li><strong>标准差</strong>：标准差（Standard Deviation）是对方差开平方根的结果。开平方之后，我们可以得到一个和平均值同样单位的数值，这样便于我们量化数据之间的差异。<ul>
+<li>低标准差意味着数据很集中，非常靠近均值，而高标准差意味着数据分布在一个很大的值域中</li>
+<li>如果数据满足正太分布，68%的数据都落在一个均值的正负一个标准差范围之内，而95%的数据落在两个标准差范围之内</li>
+</ul>
+</li>
+</ul>
+<h3 id="模型验证"><a href="#模型验证" class="headerlink" title="模型验证"></a><a name="模型验证">模型验证</a></h3><p>一般来说，模型的验证可以划分为这几个步骤：</p>
+<ol>
+<li>将我们获得的数据划分训练数据（Train Data）和测试数据（Test Data）。简单来说训练数据相当于我们的模拟试卷，而测试数据相当于我们的考试试卷。</li>
+<li>用训练数据来训练模型。在训练模型的过程中，我们可以通过K折交叉验证（Cross Validation）来进一步划分训练集合，把训练集合划分为K个集合，用K个集合中的一个当做测试集合而其余的当做训练集合来反复训练模型。</li>
+<li>用测试数据来测试模型，并得到一个模型的评分。</li>
+</ol>
+<p>在这个步骤里面一个核心概念是交叉验证。通过交叉验证，我们能够尽可能多的利用我们的数据集合。</p>
+<h4 id="K折交叉验证"><a href="#K折交叉验证" class="headerlink" title="K折交叉验证"></a><a name="K折交叉验证">K折交叉验证</a></h4><p>K折交叉验证（K-Fold Cross Validation）是交叉验证的一种方式，其目的是为了让训练集合和测试集合都尽可能的大，使我们的模型能够充分利用我们的数据。简单的来说就是把训练集合分为K个集合，每次我们都保留一个集合作为测试集，而把其余集合（K-1）作为训练集来训练，交叉重复执行K次，把K次的结果取均值或者通过其他方式进行结果，而得到一个最终结果。</p>
+<h4 id="网格搜索"><a href="#网格搜索" class="headerlink" title="网格搜索"></a><a name="网格搜索">网格搜索</a></h4><p>网格搜索（Grid Search）是为了获取模型的最佳参数而进行的一种交叉验证的方式。一般来说，我们使用的模型中都有很多的参数，我们怎样知道针对给定的数据，什么样的参数是合适的呢？我们可以通过网格搜索的方式来确定模型的最佳参数。假设一个模型有A，B两个参数，而A的可能取值集合是{a1, a2}，B的取值集合是{b1, b2, b3}。我们可以生成类似{a1b1,a1b2,a1b3,a2b1,a2b2,a2b3}这样的参数组合（叫做网格），对每个参数组合，使用交叉验证来获得一个评分，最终我们可以得到评分最高的参数，作为我们模型拟合的最佳参数。</p>
+<h3 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a><a name="模型评估">模型评估</a></h3><p>要知道一个模型的<code>好坏</code>或者<code>适合与否</code>，我们首先要确立一种评判标准。模型的评估指标，取决于我们具体要解决的问题本身。比如，对于分类问题，评估指标可能是准确率、精确率、召回率或是F分数。而对于一个回归问题，我们选取的评估指标可能是平均绝对误差或者是均方误差。</p>
+<h4 id="分类指标"><a href="#分类指标" class="headerlink" title="分类指标"></a><a name="分类指标">分类指标</a></h4><p>分类问题的衡量指标有如下一些指标：</p>
+<ul>
+<li><strong>准确率（Accuracy）</strong>：所有被正确标识的数据点个数除以所有的数据点个数。</li>
+<li><strong>精确率（Precision）</strong>：也称为查准率，是指预测为正的样本中有多少是真正的正样本。精确率是针对预测结果而言的，分子是正确预测的正样本，分母是正确预测的正样本+错误预测的正样本。</li>
+<li><strong>召回率（Recall）</strong>：也称为查全率，是指样本的正例中有多少是被正确预测了。召回率是针对我们的样本全体而言的，分子是正确预测的正样本，分母是正确预测的正样本+没有被正确预测的正样本（被错误预测为负样本）。</li>
+<li><strong>F1分数</strong>：F1分数实际上是为了同时考虑精确率和召回率，我们可以理解为精确率和召回率的加权平均值。F1分数的计算公式是：<code>F1 = 2 * (精确率 * 召回率) / (精确率 + 召回率)</code>。</li>
+</ul>
+<p>针对我们具体的问题，我们可以选择不同的衡量指标。举例来说，对于某种重大疾病的诊断判定，比起精确率来说，我们更看重召回率，因为我们宁愿误判，也不愿意漏判。</p>
+<h4 id="回归指标"><a href="#回归指标" class="headerlink" title="回归指标"></a><a name="回归指标">回归指标</a></h4><p>对于回归问题，我们更关心我们预测值和实际值的接近程度。回归的衡量指标有如下一些：</p>
+<ul>
+<li><strong>平均绝对误差</strong>：平均绝对误差的计算方法是，将各个样本的绝对误差求和，然后除以数据点数求出平均误差。我们可以用<code>sklearn.metrics.mean_absolute_error</code>算出平均绝对误差。</li>
+<li><strong>均方误差</strong>：均方误差是将残差（预测值与真实值的差值）求平方，这样可以自动将所有误差转换为正数，同时重视较大的误差而忽略较小误差。</li>
+<li><strong>R2分数</strong>：可决系数（coefficient of determination）是为了计算真值和预测值偏差的系数，1.0最好，0最坏。定义是回归平方和（ESS）在总变差（TSS）中所占的比重。值得一提的是，在sklearn中，这是回归学习器的默认分数方法。</li>
+</ul>
+<h3 id="模型误差"><a href="#模型误差" class="headerlink" title="模型误差"></a><a name="模型误差">模型误差</a></h3><p>现实世界的复杂决定了我们建立的模型总是有误差的，我们基本上来说没有办法建立一个精确的数学模型来预测所有的问题，所以，误差是不可避免的。一般来说，模型如果无法表示基本数据的复杂度而造成的误差，我们叫做<code>偏差（bias）</code>。而另外一方面，模型对训练它的数据过度敏感而造成的误差，我们叫做<code>方差（variance）</code>。</p>
+<h4 id="偏差"><a href="#偏差" class="headerlink" title="偏差"></a><a name="偏差">偏差</a></h4><p>偏差用来测量预测的准确率，如果模型没有很好的理解数据，无法捕捉数据之中的复杂关系，导致出现偏差。模型会一直错误的标识数据，从而导致预测的准确率降低，这种现象叫做模型的欠拟合（underfitting）。出现偏差一般来说意味着我们需要更复杂的模型来表示数据的基本关系。</p>
+<h4 id="方差"><a href="#方差" class="headerlink" title="方差"></a><a name="方差">方差</a></h4><p>方差用来测量预测的结果对于任何给定的测试样本会出现多大的变化。应该说出现方差是正常的，但是方差如果过高的话表明模型无法将其预测结果泛化到更多的数据，对训练集合高度敏感称之为过拟合（overfitting）。方差很高意味着我们需要更多的数据去训练模型，或者通过限制模型的复杂度，提高模型的泛化能力使模型能够适用于更多类型数据，来降低方差。</p>
+<p>关于过拟合和欠拟合的一个形象图示如下所示：<br><img src="images/overfitting.jpg" alt="过拟合和欠拟合"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/14/ML1/" data-id="cj6c0yyjy00002peke5dsg7qr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/14/ML1/">机器学习笔记 - 基础</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 KnightRay<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
