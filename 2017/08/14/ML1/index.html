@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -101,14 +101,14 @@
 <meta property="og:site_name" content="一个程序员的自言自语">
 <meta property="og:description" content="本文档主要对机器学习一些基础概念做一些简单介绍。 目录 引言 什么是机器学习？ 准备工作 语言 数学 框架 工具   一般流程 观察数据 模型验证 模型评估 模型误差   一个例子  引言本文是一个学习笔记，记录下机器学习的一些心得体会。这些心得体会可能是带有个人感受的，也可能会带有一定的偏差和误导，所以请慎重参考。我会尽量结合我们当前的产品，在每篇文章之后进行一个具备实际操作性的例子以供大家深">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/08/14/ML1/images/flow.png">
-<meta property="og:image" content="http://yoursite.com/2017/08/14/ML1/images/boxplot.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/08/14/ML1/images/overfitting.jpg">
-<meta property="og:updated_time" content="2017-08-14T13:16:08.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/08/14/ML1/flow.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/14/ML1/boxplot.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/08/14/ML1/overfitting.jpg">
+<meta property="og:updated_time" content="2017-09-09T08:32:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记 - 基础">
 <meta name="twitter:description" content="本文档主要对机器学习一些基础概念做一些简单介绍。 目录 引言 什么是机器学习？ 准备工作 语言 数学 框架 工具   一般流程 观察数据 模型验证 模型评估 模型误差   一个例子  引言本文是一个学习笔记，记录下机器学习的一些心得体会。这些心得体会可能是带有个人感受的，也可能会带有一定的偏差和误导，所以请慎重参考。我会尽量结合我们当前的产品，在每篇文章之后进行一个具备实际操作性的例子以供大家深">
-<meta name="twitter:image" content="http://yoursite.com/2017/08/14/ML1/images/flow.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/08/14/ML1/flow.png">
 
 
 
@@ -143,7 +143,7 @@
 
 
 
-  <title>机器学习笔记 - 基础 | 一个程序员的自言自语</title>
+  <title>机器学习笔记 - 基础 | 一个程序员的自言自语</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -162,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -425,7 +425,7 @@
 <li>共享环境<br>在 GitHub 上共享代码时，最好同样创建环境文件并将其包括在代码库中。这能让其他人更轻松地安装你的代码的所有依赖项。</li>
 </ul>
 <h4 id="Jupyter-Notebook"><a href="#Jupyter-Notebook" class="headerlink" title="Jupyter Notebook"></a><a name="Jupyter Notebook">Jupyter Notebook</a></h4><p>Jupyter notebook 是一种 Web 应用，能让用户将说明文本、数学方程、代码和可视化内容全部组合到一个易于共享的文档中。但是我更愿意把Jupyter Notebook看做一个很好用IDE。Jupyter可以在本机运行，也可以运行于远端机器，我已经在本地的187服务器上安装了Jupyter环境，你可以在任何一台机器上访问。</p>
-<h3 id="一般流程"><a href="#一般流程" class="headerlink" title="一般流程"></a><a name="一般流程">一般流程</a></h3><p>一个机器学习的流程如下图所示：<br><img src="images/flow.png" alt="流程"></p>
+<h3 id="一般流程"><a href="#一般流程" class="headerlink" title="一般流程"></a><a name="一般流程">一般流程</a></h3><p>一个机器学习的流程如下图所示：<br><img src="/2017/08/14/ML1/flow.png" alt="流程" title="流程"></p>
 <h3 id="观察数据"><a href="#观察数据" class="headerlink" title="观察数据"></a><a name="观察数据">观察数据</a></h3><p>数据是机器学习的输入，也是关键的部分。我们首先需要从各种统计值来观察和衡量我们的数据。</p>
 <h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a><a name="数据分布">数据分布</a></h4><p><strong>我们数据的分布是怎样的？数据的中心在哪儿？</strong></p>
 <p>要回答这样的问题，我们需要理解这些统计学的概念。</p>
@@ -448,7 +448,7 @@
 </ul>
 <p>我们可以用boxplot（箱线图）来更直观的观察到数据的分布状况，我们可以用下面的代码画出数据的箱线图。在机器学习中，我们也可以通过这个特征来观察特征数据与标签之间的相关性。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div><div class="line">sns.boxplot(x, y, orient=<span class="string">"h"</span>)</div></pre></td></tr></table></figure>
-<p>箱线图的图示如下所示：<br><img src="images/boxplot.jpg" alt="箱线图"></p>
+<p>箱线图的图示如下所示：<br><img src="/2017/08/14/ML1/boxplot.jpg" alt="箱线图" title="箱线图"></p>
 <h4 id="数据差异"><a href="#数据差异" class="headerlink" title="数据差异"></a><a name="数据差异">数据差异</a></h4><p>有时候，平均值反映不了样本数据之间的差异性，比如我们的工资可能都是<strong>被平均</strong>了，这不能反映同样年龄段的人在工资上的巨大差异，衡量这样的差异，我们需要另外的一些指标。</p>
 <ul>
 <li><strong>值域</strong>：值域（Range）反映了所有样本的取值范围。</li>
@@ -491,7 +491,7 @@
 <h3 id="模型误差"><a href="#模型误差" class="headerlink" title="模型误差"></a><a name="模型误差">模型误差</a></h3><p>现实世界的复杂决定了我们建立的模型总是有误差的，我们基本上来说没有办法建立一个精确的数学模型来预测所有的问题，所以，误差是不可避免的。一般来说，模型如果无法表示基本数据的复杂度而造成的误差，我们叫做<code>偏差（bias）</code>。而另外一方面，模型对训练它的数据过度敏感而造成的误差，我们叫做<code>方差（variance）</code>。</p>
 <h4 id="偏差"><a href="#偏差" class="headerlink" title="偏差"></a><a name="偏差">偏差</a></h4><p>偏差用来测量预测的准确率，如果模型没有很好的理解数据，无法捕捉数据之中的复杂关系，导致出现偏差。模型会一直错误的标识数据，从而导致预测的准确率降低，这种现象叫做模型的欠拟合（underfitting）。出现偏差一般来说意味着我们需要更复杂的模型来表示数据的基本关系。</p>
 <h4 id="方差"><a href="#方差" class="headerlink" title="方差"></a><a name="方差">方差</a></h4><p>方差用来测量预测的结果对于任何给定的测试样本会出现多大的变化。应该说出现方差是正常的，但是方差如果过高的话表明模型无法将其预测结果泛化到更多的数据，对训练集合高度敏感称之为过拟合（overfitting）。方差很高意味着我们需要更多的数据去训练模型，或者通过限制模型的复杂度，提高模型的泛化能力使模型能够适用于更多类型数据，来降低方差。</p>
-<p>关于过拟合和欠拟合的一个形象图示如下所示：<br><img src="images/overfitting.jpg" alt="过拟合和欠拟合"></p>
+<p>关于过拟合和欠拟合的一个形象图示如下所示：<br><img src="/2017/08/14/ML1/overfitting.jpg" alt="过拟合和欠拟合" title="过拟合和欠拟合"></p>
 <h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a><a name="一个例子">一个例子</a></h2><p><code>TBD</code></p>
 
       
@@ -513,6 +513,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/02/ML2/" rel="prev" title="机器学习笔记 - 监督学习">
+                机器学习笔记 - 监督学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -586,7 +602,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -762,7 +778,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -808,6 +824,8 @@
   
 
   
+  
+
 
   
 
